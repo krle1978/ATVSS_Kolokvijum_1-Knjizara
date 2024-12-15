@@ -1,0 +1,48 @@
+digraph UML_Diagram {
+	rankdir=LR
+	Book [label="<<abstract>> Book
+- title: str
+- author: str
+- price: float
+- quantity: int
++ get_details()" shape=record]
+	Textbook [label="Textbook
+- subject: str
+- academic_level: str
++ get_details()" shape=record]
+	PictureBook [label="PictureBook
+- illustrator: str
+- recommended_age: int
++ get_details()" shape=record]
+	Novel [label="Novel
+- genre: str
+- is_bestseller: bool
++ get_details()" shape=record]
+	Inventory [label="Inventory
+- books: List[Book]
++ add_book(book: Book)
++ remove_book(book: Book)
++ search_book(title: str)
++ display_inventory()" shape=record]
+	Order [label="Order
+- order_id: int
+- books: List[Book]
+- total_price: float
++ add_book_to_order(book: Book)
++ calculate_total_price()" shape=record]
+	Customer [label="Customer
+- customer_id: int
+- name: str
+- phone: str
+- address: str
+- email: str
+- orders: List[Order]
++ place_order(order: Order)
++ get_order_history()" shape=record]
+	Book -> Textbook [label=inherits arrowhead=empty]
+	Book -> PictureBook [label=inherits arrowhead=empty]
+	Book -> Novel [label=inherits arrowhead=empty]
+	Inventory -> Book [label=contains arrowhead=diamond]
+	Order -> Book [label=contains arrowhead=diamond]
+	Customer -> Order [label=contains arrowhead=diamond]
+}

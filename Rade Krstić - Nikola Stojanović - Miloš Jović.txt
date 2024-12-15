@@ -1,0 +1,20 @@
+Rade Krstić ITS 09/23
+Nikola Stojanović ITS 11/23
+Miloš Jović MKT 03/23
+___________________________________________________________
+Agregacija je korišćena između klase Inventory i Book, kao i između klase Order i Book. Agregacija označava da jedna klasa može imati instancu druge klase kao deo svoje strukture, ali ta klasa može postojati nezavisno od nje.
+ U slučaju klase Inventory, agregacija označava da inventar sadrži kolekciju knjiga, ali knjige mogu postojati i van inventara (npr. mogu se prodati ili ukloniti iz inventara). Slično, u slučaju Order klase, svaki Order može imati više knjiga, ali knjige mogu biti deo drugih narudžbina ili mogu biti prodane samostalno.
+
+Kompozicija je korišćena između klase Customer i Order. Ovaj odnos označava da narudžbine (objekti klase Order) ne mogu postojati bez korisnika (objekta klase Customer). Kada se ukloni korisnik, njegove narudžbine takođe nestaju.
+Kompozicija garantuje postojanje zavisnosti između objekata. U ovom slučaju, narudžbine pripadaju korisnicima, i ako se korisnik izbriše, sve njegove narudžbine takođe treba da nestanu. Ovo odražava realan poslovni model gde korisnik i njegove narudžbine čine povezani entitet.
+____________________________________________________________
+book.py - Sadrži apstraktnu klasu Book i podklase Textbook, PictureBook, i Novel.
+inventory.py - Sadrži klasu Inventory za upravljanje kolekcijom knjiga.
+order.py - Sadrži klasu Order za kreiranje i upravljanje narudžbinama.
+customer.py - Sadrži klasu Customer za upravljanje podacima o kupcima i njihovim narudžbinama.
+
+test_add_book_to_inventory.py - Sadrži test za dodavanje knjige u inventar.
+test_calculate_total_price.py - Sadrži test za kreiranje narudžbine sa knjigama i računanje ukupne cene.
+test_add_order_for_customer.py - Sadrži test za dodavanje narudžbine za kupca.
+test_search_book_in_inventory.py - Sadrži test za pretragu knjige po naslovu u inventaru.
+test_get_order_history.py - Sadrži test za prikaz istorije narudžbina kupca.
